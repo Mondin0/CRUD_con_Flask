@@ -1,0 +1,24 @@
+{% include 'header.html' %}
+
+<div class="container-fluid" >
+    <br>
+    <div class="row justify-content-center">
+        <h1>Nuestros jugadores</h1>
+    </div>
+    <br>
+    <form method="post" action="/filtrar" enctype="multipart/form-data" class="form-group">
+        Buscar por deporte:
+        <select name="txtDeporte" id=txtDeporte class="form-control">
+            <option value="Fútbol">Fútbol</option>
+            <option value="Basket">Basket</option>
+            <option value="Volley">Volley</option>
+            <option value="Hockey">Hockey</option>
+        </select>
+        <br>
+        <input type="submit" value="Buscar por deporte" class="btn btn-success">
+        <a href="{{url_for('index')}}" class="btn btn-primary">Regresar</a>       
+    </form>
+</div>
+
+
+{% include 'footer.html' %}

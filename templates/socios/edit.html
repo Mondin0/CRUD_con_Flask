@@ -1,0 +1,33 @@
+{% include 'header.html' %}
+    <div class="container-fluid">
+        <br>
+        <div class="row justify-content-center">
+            <h1>Editar datos de un socio existente</h1>
+        </div>
+        <br>
+        {% for socio in socios %}
+        <form method="post" action="/update" enctype="multipart/form-data" class="form-group">
+            <input type="hidden" value="{{socio[0]}}" name="txtID" id="txtID" class="form-control">
+            <label for="txtDNI">DNI:</label> 
+            <input type="text" value="{{socio[1]}}" name="txtDNI" id="txtDNI" class="form-control">
+            <br>
+            <label for="txtApellido">Apellido:</label>
+            <input type="text" name="txtApellido" id="txtApellido" value="{{socio[2]}}" class="form-control">
+            <br>
+            <label for="txtNombre">Nombre:</label>
+            <input type="text" name="txtNombre" id="txtNombre" value="{{socio[3]}}" class="form-control">
+            <br>
+            Deporte: 
+            <select name="txtDeporte" id=txtDeporte value="{{socio[4]}}" class="form-control">
+                <option value="Fútbol">Fútbol</option>
+                <option value="Basket">Basket</option>
+                <option value="Volley">Volley</option>
+                <option value="Hockey">Hockey</option>
+            </select>
+            <br>
+            <input type="submit" value="Cargar nuevos datos" class="btn btn-success"> <a href="{{url_for('index')}}" class="btn btn-primary">Regresar</a>
+        </form>
+    {% endfor %}
+    </div>
+
+{% include 'footer.html' %}
